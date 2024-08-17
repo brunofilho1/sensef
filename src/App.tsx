@@ -21,7 +21,7 @@ function App() {
           <FileUploaderArea />
         </div>
         <div className='max-w-2xl w-full'>
-          <Button className='w-full' disabled={!files}>
+          <Button className='w-full' disabled={!files || files.length === 0}>
             Rock It!
           </Button>
         </div>
