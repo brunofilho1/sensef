@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   FileUploader,
   FileUploaderContent,
@@ -8,6 +7,8 @@ import {
   FileInput,
 } from "@/components/extension/file-upload";
 import { Paperclip } from "lucide-react";
+import { useAtom } from "jotai";
+import { filesAtom } from "@/atoms/files-atom";
 
 const FileSvgDraw = () => {
   return (
@@ -39,7 +40,7 @@ const FileSvgDraw = () => {
 };
 
 const FileUploaderArea = () => {
-  const [files, setFiles] = useState<File[] | null>(null);
+  const [files, setFiles] = useAtom(filesAtom);
 
   const dropZoneConfig = {
     maxFiles: 5,

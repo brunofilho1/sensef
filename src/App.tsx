@@ -1,8 +1,12 @@
+import { useAtom } from 'jotai';
 import FileUploaderArea from './components/file-uploader-area'
 import { Button } from './components/ui/button'
 import viteLogo from '/vite.svg'
+import { filesAtom } from './atoms/files-atom';
 
 function App() {
+  const [files] = useAtom(filesAtom);
+
   return (
     <div className='flex flex-col justify-between h-screen'>
       <main className="w-full container items-center h-full justify-center flex flex-col gap-6">
@@ -17,7 +21,7 @@ function App() {
           <FileUploaderArea />
         </div>
         <div className='max-w-2xl w-full'>
-          <Button className='w-full'>
+          <Button className='w-full' disabled={!files}>
             Rock It!
           </Button>
         </div>
